@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhotoEditX</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons (Remix Icon CDN) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo"><i class="ri-camera-lens-line"></i> PhotoEditX</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#editor">Editor</a></li>
+         <li><a href="#collage">College</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+           <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="dark-toggle"><i class="ri-moon-line"></i></button>
+      <div class="menu-toggle"><i class="ri-menu-line"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Edit Photos Online</h1>
+        <p>
+          Add filters, create collages, and download your masterpiece — all in
+          your browser!
+        </p>
+        <a href="#editor" class="cta-btn"
+          ><i class="ri-magic-line"></i> Start Editing</a
+        >
+      </div>
+      <div class="hero-image">
+        <!-- random placeholder image -->
+        <img src="https://picsum.photos/400/350" alt="Photo Editing Preview" />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <h2>Awesome Features</h2>
+      <p class="subtext">Everything you need to create amazing photos</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="ri-filter-3-line"></i>
+          <h3>Filters</h3>
+          <p>Apply cool filters like brightness, contrast, blur, and more.</p>
+        </div>
+        <div class="feature-card">
+          <i class="ri-contrast-drop-line"></i>
+          <h3>Adjustments</h3>
+          <p>Tweak brightness, contrast, saturation, and blur in real time.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="ri-layout-grid-line"></i>
+          <h3>Collage</h3>
+          <p>Create photo collages with drag-and-drop layouts.</p>
+        </div>
+        <div class="feature-card">
+          <i class="ri-magic-line"></i>
+          <h3>Filters</h3>
+          <p>Enhance your photos instantly with creative filters.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="ri-sticky-note-line"></i>
+          <h3>Stickers</h3>
+          <p>Add fun stickers and frames to your pictures.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="ri-font-size-2"></i>
+          <h3>Text</h3>
+          <p>Write custom text with fonts, colors, and shadows.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editor Section -->
+    <section id="editor" class="editor">
+      <h2>Photo Editor</h2>
+      <p class="subtext">Upload your photo and start editing instantly</p>
+
+      <div class="editor-container">
+        <!-- Upload + Preview -->
+        <div class="editor-left">
+          <input type="file" id="upload" accept="image/*" />
+          <div class="image-preview">
+            <img
+              id="photo"
+              src="https://via.placeholder.com/400x300?text=Upload+an+Image"
+              alt="Preview"
+            />
+          </div>
+          <button id="downloadBtn" class="download-btn">
+            <i class="ri-download-2-line"></i> Download
+          </button>
+        </div>
+
+        <!-- Controls -->
+        <div class="editor-right">
+          <div class="control">
+            <label>Brightness</label>
+            <input type="range" id="brightness" min="0" max="200" value="100" />
+          </div>
+          <div class="control">
+            <label>Contrast</label>
+            <input type="range" id="contrast" min="0" max="200" value="100" />
+          </div>
+          <div class="control">
+            <label>Saturation</label>
+            <input type="range" id="saturation" min="0" max="200" value="100" />
+          </div>
+          <div class="control">
+            <label>Blur</label>
+            <input type="range" id="blur" min="0" max="10" value="0" />
+          </div>
+          <div class="control">
+            <label>Grayscale</label>
+            <input type="range" id="grayscale" min="0" max="100" value="0" />
+          </div>
+          <div class="control">
+            <label>Sepia</label>
+            <input type="range" id="sepia" min="0" max="100" value="0" />
+          </div>
+          <div class="control">
+            <label>Hue Rotate</label>
+            <input type="range" id="hue" min="0" max="360" value="0" />
+          </div>
+          <div class="control">
+            <label>Invert</label>
+            <input type="range" id="invert" min="0" max="100" value="0" />
+          </div>
+          <div class="control">
+            <label>Opacity</label>
+            <input type="range" id="opacity" min="0" max="100" value="100" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collage Maker -->
+    <section id="collage" class="collage">
+      <h2>Collage Maker</h2>
+      <p class="subtext">
+        Upload multiple photos and arrange them into a collage
+      </p>
+
+      <div class="collage-tools">
+        <input type="file" id="collageUpload" accept="image/*" multiple />
+        <button id="saveCollage" class="download-btn">
+          <i class="ri-download-2-line"></i> Save Collage
+        </button>
+      </div>
+
+      <div class="collage-area" id="collageArea">
+        <p class="placeholder">Upload images to start making a collage</p>
+      </div>
+    </section>
+
+    <!-- Stickers Section -->
+    <section id="stickers" class="stickers">
+      <h2>Stickers</h2>
+      <p class="subtext">Click a sticker to add it to your collage</p>
+
+      <div class="sticker-list">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/742/742751.png"
+          alt="star"
+          class="sticker"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/616/616408.png"
+          alt="heart"
+          class="sticker"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/742/742774.png"
+          alt="smile"
+          class="sticker"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3124/3124786.png"
+          alt="glasses"
+          class="sticker"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/742/742819.png"
+          alt="crown"
+          class="sticker"
+        />
+      </div>
+    </section>
+    <!-- Text Section -->
+    <section id="text-tools" class="text-tools">
+      <h2>Add Text</h2>
+      <p class="subtext">Write your own text and style it</p>
+
+      <div class="text-controls">
+        <input type="text" id="customText" placeholder="Enter your text" />
+        <select id="fontSelect">
+          <option value="Arial">Arial</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Impact">Impact</option>
+          <option value="Comic Sans MS">Comic Sans</option>
+        </select>
+        <input type="color" id="textColor" value="#ffffff" />
+        <input type="number" id="fontSize" value="32" min="10" max="100" />
+        <button id="addTextBtn" class="send-btn">
+          <i class="ri-text"></i> Add Text
+        </button>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <h2>Gallery</h2>
+      <p class="subtext">Check out some sample edits and inspiration</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=1" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=2" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=3" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=4" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=5" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=6" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=7" alt="edit" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/400/300?random=8" alt="edit" />
+        </div>
+      </div>
+    </section>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-img" src="" alt="Preview" />
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+      <h2>Pricing Plans</h2>
+      <p class="subtext">Choose the plan that fits your needs</p>
+
+      <!-- Toggle Switch -->
+      <div class="toggle-container">
+        <span>Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="billingToggle" />
+          <span class="slider"></span>
+        </label>
+        <span>Yearly <small>(save 20%)</small></span>
+      </div>
+
+      <div class="pricing-cards">
+        <!-- Free Plan -->
+        <div class="card">
+          <h3>Free</h3>
+          <p class="price" data-monthly="0" data-yearly="0">
+            $0 <span>/mo</span>
+          </p>
+          <ul>
+            <li>✅ Basic Filters</li>
+            <li>✅ Collage Maker</li>
+            <li>✅ Stickers</li>
+            <li>❌ High-Resolution Export</li>
+            <li>❌ Premium Fonts</li>
+          </ul>
+          <button class="plan-btn">Get Started</button>
+        </div>
+
+        <!-- Pro Plan -->
+        <!-- Pro Plan -->
+        <div class="card popular">
+          <div class="ribbon">Most Popular</div>
+          <h3>Pro</h3>
+          <p class="price" data-monthly="9" data-yearly="86">
+            $9 <span>/mo</span>
+          </p>
+          <ul>
+            <li>✅ All Filters</li>
+            <li>✅ Collage + Stickers</li>
+            <li>✅ Text Tools</li>
+            <li>✅ High-Resolution Export</li>
+            <li>❌ Team Collaboration</li>
+          </ul>
+          <button class="plan-btn">Upgrade</button>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="card">
+          <h3>Premium</h3>
+          <p class="price" data-monthly="19" data-yearly="182">
+            $19 <span>/mo</span>
+          </p>
+          <ul>
+            <li>✅ Everything in Pro</li>
+            <li>✅ Premium Fonts</li>
+            <li>✅ Team Collaboration</li>
+            <li>✅ Priority Support</li>
+          </ul>
+          <button class="plan-btn">Go Premium</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p class="subtext">Quick answers to common questions</p>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            Is the Free plan really free? <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes! You can use all the basic filters, collage tools, and
+              stickers at no cost.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I cancel anytime? <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Absolutely. You can upgrade, downgrade, or cancel your
+              subscription anytime.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do I need to download the app? <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              No downloads required! Everything runs directly in your browser.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you offer team plans? <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes, the Premium plan includes team collaboration features and
+              priority support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <h2>What Our Users Say</h2>
+      <p class="subtext">
+        Loved by creators, designers, and casual editors worldwide
+      </p>
+
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <img src="https://i.pravatar.cc/80?img=12" alt="User 1" />
+          <p>
+            "This editor is amazing! I can add filters, create collages, and
+            export in seconds. Highly recommend!"
+          </p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <h4>- Alex Johnson</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="https://i.pravatar.cc/80?img=32" alt="User 2" />
+          <p>
+            "The stickers and text tools are so fun! I use it for Instagram
+            posts all the time."
+          </p>
+          <div class="stars">⭐⭐⭐⭐</div>
+          <h4>- Priya Sharma</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <img src="https://i.pravatar.cc/80?img=56" alt="User 3" />
+          <p>
+            "The Pro plan is worth every penny. The high-res exports save me so
+            much time in client work."
+          </p>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <h4>- Daniel Lee</h4>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section id="cta" class="cta">
+      <div class="cta-content">
+        <h2>Ready to Create Stunning Edits?</h2>
+        <p>
+          Join thousands of users already making amazing collages, filters, and
+          designs online.
+        </p>
+        <a href="#editor" class="cta-btn">Start Editing Now</a>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Just Say Hello..!</h2>
+      <p class="subtext">
+        Have feedback or want to collaborate? Drop a message!
+      </p>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="send-btn">
+          <i class="ri-send-plane-line"></i> Send
+        </button>
+      </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <h3>PhotoEditX</h3>
+          <p>
+            Create amazing edits, collages, and designs right in your browser.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="#"><i class="ri-facebook-circle-line"></i></a>
+          <a href="#"><i class="ri-twitter-x-line"></i></a>
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-linkedin-line"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 PhotoEditX. All rights reserved | ARK</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
