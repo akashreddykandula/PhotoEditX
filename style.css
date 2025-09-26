@@ -38,6 +38,9 @@ html {
   align-items: center;
   gap: 0.4rem;
 }
+.logo:hover{
+  cursor:poiner;
+}
 
 .nav-links {
   list-style: none;
@@ -1132,3 +1135,4 @@ input:checked + .slider:before {
 .light-mode .footer-social a:hover {
   color: #1f6feb;
 }
+
